@@ -39,6 +39,9 @@ TASK_Example_3 = ".תחא המישמ לע ןמז ידמ רתוי יזבזבת ל
 # below the TASK_TEXT_1, TASK_TEXT_2, and TASK_TEXT_3 combination
 TASK_Example_4 = ".ימייסתשכ חוורה שקמ לע יצחל\n"
 
+# this is the text to be shown at the end of the test 
+TASK_Example_5 = ".קדובל יארק אנא , המייתסה המישמה\n"
+
 
 TASK_TEXT_1 = "םוקמב תדמוע תאש י ניימד"
 TASK_TEXT_2 = "ןוויכל הנופו"
