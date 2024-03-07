@@ -153,16 +153,22 @@ def main():
 ##################
 # plot creator functions
 ##################
+def on_key(event):
+    if event.key == ' ':
+        plt.close(event.canvas.figure)
+
 def create_instruction_window():
     ins_fig = plt.figure("Instructions", figsize = (8, 7))
     ins_ax = ins_fig.add_subplot(1, 1, 1)
-    #ins_ax.text(0.01, 0, INSTRUCTION_TEXT, verticalalignment='center', fontsize=12.5)
     ins_ax.text(0.99, 0.9, INSTRUCTION_TEXT_title, verticalalignment='top', horizontalalignment='right', fontsize=12.5, weight='bold')
     ins_ax.text(0.99, 0.8, INSTRUCTION_TEXT, verticalalignment='top', horizontalalignment='right', fontsize=12.5)
     plt.xticks([])
     plt.yticks([])
     plt.ylim([-1.0, 1.0])
     ins_fig.tight_layout()
+
+    ins_fig.canvas.mpl_connect('key_press_event', on_key)
+    plt.show()
 
 
 def create_test_window(SUBJECT_ID):
