@@ -37,47 +37,32 @@ class CustomDialog(simpledialog.Dialog):
 ##################
 # task specifications
 ##################
-# this is the text to be shown on top of the practice first example
-# (the one that was presented initially as a fixed image
+
 TASK_EXAMPLE_0_F = "לפניך תרגיל לדוגמה בו מסומנת התשובה הנכונה.  התאמני על סימון התשובה שלך בעזרת העכבר. כדי להתאמן על סימון התשובה, לחצי על היקף מעגל הסימון וקו יופיע בהתאם. הזיזי את הקו לאורך מעגל הסימון בעזרת העכבר לתשובה הרצויה. התאימי את התשובה שלך לתשובה הנכונה המסומנת. לחצי על מקש הרווח כשתסיימי"
 TASK_EXAMPLE_0_M = "לפניך תרגיל לדוגמה בו מסומנת התשובה הנכונה. התאמן על סימון התשובה שלך בעזרת העכבר. כדי להתאמן על סימון התשובה, לחץ על היקף מעגל הסימון וקו יופיע בהתאם. הזז את הקו לאורך מעגל הסימון בעזרת העכבר לתשובה הרצויה. התאם את התשובה שלך לתשובה הנכונה המסומנת. לחץ על מקש הרווח כשתסיים"
-TASK_EXAMPLE_0 = TASK_EXAMPLE_0_M
 
-# add break line at every period, in addition to displaying the text from right to left correctly
-
-
-# this is the text to be shown alone, before the three practice examples
 TASK_EXAMPLE_1_F = ".ךלש הבושתה תא ןמסל ידכ ןומיסה לגעמ לע וקה תא יזיזה אמגוד לכב .ןומיאל תואמגוד שולש ךינפל ועיפוי תעכ\n" +\
 ".םודא עבצב עיפות הנוכנה הבושתהו חוורה שקמ לע יצחל ןכמ רחאל\n\n"
 
 TASK_EXAMPLE_1_M = ". ךלש הבושתה תא ןמסל ידכ ןומיסה לגעמ לע וקה תא זזה אמגוד לכב .ןומיאל תואמגוד שולש ךינפל ועיפוי תעכ\n" +\
 ".םודא עבצב עיפות הנוכנה הבושתהו חוורה שקמ לע ץחל ןכמ רחאל\n\n"
 
-TASK_EXAMPLE_1 = TASK_EXAMPLE_1_M
 
-# this is the text to be shown below each of the three practice examples lines 
-# below the TASK_TEXT_1, TASK_TEXT_2, and TASK_TEXT_3 combination
 TASK_EXAMPLE_2_F = ".ימייסתשכ חוורה שקמ לע יצחל\n"
 
 TASK_EXAMPLE_2_M = ".םייסתשכ חוורה שקמ לע ץחל\n"
 
-TASK_EXAMPLE_2 = TASK_EXAMPLE_2_M
 
-# this is the text to be shown alone, before the 12 test trials
+
 TASK_EXAMPLE_3_F ="כעת יתחיל המבדק. לרשותך 5 דקות להשלים 12 משימות. נסי לענות במדויק, אבל אל תבזבזי יותר מדי זמן על משימה אחת.  אם יש לך שאלות אחרונות לגבי המבדק שאלי עכשיו. אם לא, הודיעי לבודק שאת מוכנה להתחיל"
 TASK_EXAMPLE_3_M = "כעת יתחיל המבדק. לרשותך 5 דקות להשלים 12 משימות. נסה לענות במדויק, אבל אל תבזבז יותר מדי זמן על משימה אחת.  אם יש לך שאלות אחרונות לגבי המבדק שאל עכשיו. אם לא, הודע לבודק שאתה מוכן להתחיל" 
 
-TASK_EXAMPLE_3 = TASK_EXAMPLE_3_M
 
-# this is the text to be shown below each of the test trials 
 # below the TASK_TEXT_1, TASK_TEXT_2, and TASK_TEXT_3 combination
 TASK_EXAMPLE_4_F = ".ימייסתשכ חוורה שקמ לע יצחל\n"
 
 TASK_EXAMPLE_4_M = ".םייסתשכ חוורה שקמ לע ץחל\n"
 
-TASK_EXAMPLE_4 = TASK_EXAMPLE_4_M
-
-# this is the text to be shown at the end of the test 
 TASK_TEXT_1_F = "םוקמב תדמוע תאש יניימד"
 TASK_TEXT_2_F = "ןוויכל הנופו"
 TASK_TEXT_3_F = "ןוויכל יעיבצה"
@@ -85,10 +70,6 @@ TASK_TEXT_3_F = "ןוויכל יעיבצה"
 TASK_TEXT_1_M = "םוקמב דמוע התאש ןיימד"
 TASK_TEXT_2_M = "ןוויכל הנופו"
 TASK_TEXT_3_M = "ןוויכל עבצה"
-
-TASK_TEXT_1 = TASK_TEXT_1_M
-TASK_TEXT_2 = TASK_TEXT_2_M
-TASK_TEXT_3 = TASK_TEXT_3_M
 
 # First 4 are example items, the next 12 are the actual test items
 TASK_ITEMS = [
@@ -130,8 +111,6 @@ INSTRUCTION_TEXT_M = ".ןומיס לגעמ ודיצלו טפשמ עיפוי הנ
                    ".ףותה לש ןוויכה לא עיבצמש וק רייצל התייה אמגודב המישמה .ץעה ןוויכל הנופו ןומעפה םוקמב דמוע התאש ןיימדל שקבתמ התא וז אמגודב .דומעה תיתחתבש אמגודל בלשב טבה\n" + \
                    "?וקווקמה וקה עיבצמ וילא ןוויכב היה ףותה ,ץעה ןוויכל הנופו ןומעפה םוקמב דמוע תייה םאש ןיימדל לוכי התא םאה .וקווקמ וקכ אמגודב עיפומ רייצל ךירצ היהש וקה\n\n" + \
                    ".המישמה יבגל תולאש ךל שי םא ןחובה תא לאש\n"
-INSTRUCTION_TEXT = INSTRUCTION_TEXT_M
-
 ##################
 # Global variables for the plot creator functions and instructions
 ##################
@@ -147,8 +126,24 @@ text_example = None
 text_instruction = None
 example_task_instruction = None
 
+##################
+# Global variables for text boxes
+##################
+
+TASK_EXAMPLE_0 = None # this is the text to be shown on top of the practice first example ,(the one that was presented initially as a fixed image)
+TASK_EXAMPLE_1 = None # this is the text to be shown alone, before the three practice examples
+TASK_EXAMPLE_2 = None # this is the text to be shown below each of the three practice examples lines, below the TASK_TEXT_1, TASK_TEXT_2, and TASK_TEXT_3 combination
+TASK_EXAMPLE_3 = None # this is the text to be shown alone, before the 12 test trials
+TASK_EXAMPLE_4 = None # this is the text to be shown below each of the test trials , below the TASK_TEXT_1, TASK_TEXT_2, and TASK_TEXT_3 combination
+INSTRUCTION_TEXT = None # this is the text to be shown at the beginning of the test (first window)
+
+# the next three are shown along with the senctences in the TASK_ITEMS list
+TASK_TEXT_1 = None
+TASK_TEXT_2 = None
+TASK_TEXT_3 = None
+
 ###########
-# Some global variables for the tkinter and font and dpi settings
+# Global variables for the tkinter and font and dpi settings
 #########
 root = tk.Tk() # open a tkinter window to get the screen size
 screen_width = root.winfo_screenwidth()
@@ -162,7 +157,7 @@ fontsize_instruction = 15  # Set font size for the instructions window
 fontsize_test = 13  # Set font size for the test window
 
 ##########
-# global varibles for time
+# Global varibles for time
 ##########
 start_time = 0
 timer = None
