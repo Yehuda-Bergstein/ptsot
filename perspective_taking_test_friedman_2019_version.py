@@ -32,42 +32,63 @@ class CustomDialog(simpledialog.Dialog):
         self.state('normal')  # Maximize the dialog box
         self.title("End of Test")
         self.label = tk.Label(master, text=".המשימה הסתיימה, אנא קראי לבודק", font=("TkDefaultFont", 46))
+        self.label_M = tk.Label(master, text=".המשימה הסתיימה, אנא קרא לבודק", font=("TkDefaultFont", 46))
         self.label.pack()
 ##################
 # task specifications
 ##################
 # this is the text to be shown on top of the practice first example
 # (the one that was presented initially as a fixed image
-TASK_EXAMPLE_0_F = "לפניך תרגיל לדוגמה בו מסומנת התשובה הנכונה.  התאמני על סימון התשובה שלך בעזרת העכבר. כדי להתאמן על סימון התשובה, לחצי על היקף מעגל הסימון וקו יופיע בהתאם. הזיזי את את הקו לאורך מעגל הסימון בעזרת העכבר לתשובה הרצויה. התאימי את התשובה שלך לתשובה הנכונה המסומנת. לחצי על מקש הרווח כשתסיימי"
+TASK_EXAMPLE_0_F = "לפניך תרגיל לדוגמה בו מסומנת התשובה הנכונה.  התאמני על סימון התשובה שלך בעזרת העכבר. כדי להתאמן על סימון התשובה, לחצי על היקף מעגל הסימון וקו יופיע בהתאם. הזיזי את הקו לאורך מעגל הסימון בעזרת העכבר לתשובה הרצויה. התאימי את התשובה שלך לתשובה הנכונה המסומנת. לחצי על מקש הרווח כשתסיימי"
+TASK_EXAMPLE_0_M = "לפניך תרגיל לדוגמה בו מסומנת התשובה הנכונה. התאמן על סימון התשובה שלך בעזרת העכבר. כדי להתאמן על סימון התשובה, לחץ על היקף מעגל הסימון וקו יופיע בהתאם. הזז את הקו לאורך מעגל הסימון בעזרת העכבר לתשובה הרצויה. התאם את התשובה שלך לתשובה הנכונה המסומנת. לחץ על מקש הרווח כשתסיים"
+TASK_EXAMPLE_0 = TASK_EXAMPLE_0_M
 
 # add break line at every period, in addition to displaying the text from right to left correctly
 
 
 # this is the text to be shown alone, before the three practice examples
-TASK_EXAMPLE_1 = ".ךלש הבושתה תא ןמסל ידכ ןומיסה לגעמ לע וקה תא יזיזה אמגוד לכב .ןומיאל תואמגוד שולש ךינפל ועיפוי תעכ\n" +\
+TASK_EXAMPLE_1_F = ".ךלש הבושתה תא ןמסל ידכ ןומיסה לגעמ לע וקה תא יזיזה אמגוד לכב .ןומיאל תואמגוד שולש ךינפל ועיפוי תעכ\n" +\
 ".םודא עבצב עיפות הנוכנה הבושתהו חוורה שקמ לע יצחל ןכמ רחאל\n\n"
 
+TASK_EXAMPLE_1_M = ". ךלש הבושתה תא ןמסל ידכ ןומיסה לגעמ לע וקה תא זזה אמגוד לכב .ןומיאל תואמגוד שולש ךינפל ועיפוי תעכ\n" +\
+".םודא עבצב עיפות הנוכנה הבושתהו חוורה שקמ לע ץחל ןכמ רחאל\n\n"
+
+TASK_EXAMPLE_1 = TASK_EXAMPLE_1_M
 
 # this is the text to be shown below each of the three practice examples lines 
 # below the TASK_TEXT_1, TASK_TEXT_2, and TASK_TEXT_3 combination
-TASK_EXAMPLE_2 = ".ימייסתשכ חוורה שקמ לע יצחל\n"
+TASK_EXAMPLE_2_F = ".ימייסתשכ חוורה שקמ לע יצחל\n"
+
+TASK_EXAMPLE_2_M = ".םייסתשכ חוורה שקמ לע ץחל\n"
+
+TASK_EXAMPLE_2 = TASK_EXAMPLE_2_M
 
 # this is the text to be shown alone, before the 12 test trials
-TASK_EXAMPLE_3 = ".תחא המישמ לע ןמז ידמ רתוי יזבזבת לא לבא ,קיודמב תונעל יסנ .תומישמ 21 םילשהל תוקד 5 ךתושרל .קדבמה ליחתי תעכ\n\n" +\
-".וישכע ילאש קדבמה יבגל תונורחא תולאש ךל שי םא\n\n" +\
-".ליחתהל הנכומ תאש קדובל יעידוה ,אל םא\n"
+TASK_EXAMPLE_3_F ="כעת יתחיל המבדק. לרשותך 5 דקות להשלים 12 משימות. נסי לענות במדויק, אבל אל תבזבזי יותר מדי זמן על משימה אחת.  אם יש לך שאלות אחרונות לגבי המבדק שאלי עכשיו. אם לא, הודיעי לבודק שאת מוכנה להתחיל"
+TASK_EXAMPLE_3_M = "כעת יתחיל המבדק. לרשותך 5 דקות להשלים 12 משימות. נסה לענות במדויק, אבל אל תבזבז יותר מדי זמן על משימה אחת.  אם יש לך שאלות אחרונות לגבי המבדק שאל עכשיו. אם לא, הודע לבודק שאתה מוכן להתחיל" 
+
+TASK_EXAMPLE_3 = TASK_EXAMPLE_3_M
 
 # this is the text to be shown below each of the test trials 
 # below the TASK_TEXT_1, TASK_TEXT_2, and TASK_TEXT_3 combination
-TASK_EXAMPLE_4 = ".ימייסתשכ חוורה שקמ לע יצחל\n"
+TASK_EXAMPLE_4_F = ".ימייסתשכ חוורה שקמ לע יצחל\n"
+
+TASK_EXAMPLE_4_M = ".םייסתשכ חוורה שקמ לע ץחל\n"
+
+TASK_EXAMPLE_4 = TASK_EXAMPLE_4_M
 
 # this is the text to be shown at the end of the test 
+TASK_TEXT_1_F = "םוקמב תדמוע תאש יניימד"
+TASK_TEXT_2_F = "ןוויכל הנופו"
+TASK_TEXT_3_F = "ןוויכל יעיבצה"
 
-TASK_TEXT_1 = "םוקמב תדמוע תאש יניימד"
-TASK_TEXT_2 = "ןוויכל הנופו"
-TASK_TEXT_3 = "ןוויכל יעיבצה"
+TASK_TEXT_1_M = "םוקמב דמוע התאש ןיימד"
+TASK_TEXT_2_M = "ןוויכל הנופו"
+TASK_TEXT_3_M = "ןוויכל עבצה"
 
-
+TASK_TEXT_1 = TASK_TEXT_1_M
+TASK_TEXT_2 = TASK_TEXT_2_M
+TASK_TEXT_3 = TASK_TEXT_3_M
 
 # First 4 are example items, the next 12 are the actual test items
 TASK_ITEMS = [
@@ -92,7 +113,7 @@ TASK_ITEMS = [
 ##################
 
 INSTRUCTION_TEXT_title = " (Spatial Orientation Test) בחרמב תואצמתה קדבמ \n"
-INSTRUCTION_TEXT = ".ןומיס לגעמ הדיצלו טפשמ עיפוי הנומתל תחתמ .םיטקייבוא רפסמ םימקוממ הבו הנומת יארת קדבמב .בחרמב תונוש טבמ תודוקנו םינוויכ ןיימדל ךלש תלוכיה תא ןחוב הז קדבמ\n" + \
+INSTRUCTION_TEXT_F = ".ןומיס לגעמ הדיצלו טפשמ עיפוי הנומתל תחתמ .םיטקייבוא רפסמ םימקוממ הבו הנומת יארת קדבמב .בחרמב תונוש טבמ תודוקנו םינוויכ ןיימדל ךלש תלוכיה תא ןחוב הז קדבמ\n" + \
                    ".תראותמה הביטקפסרפהמ ישילש טקייבוא אצמנ וב ןוויכה תא ףקשמש וק רייצל היהת ךלש המישמה .רחא טקייבוא ןוויכל הנופו ,הנומתבש םיטקייבואה דחא םוקמב תדמוע תאש ןיימדל ישקבתת תא\n" + \
                    ".ךיילא סחיב והשלכ ישילש טקייבוא לש םוקימה תא ףקשמש וק רייצל ןכמ רחאלו ,שדח טקייבוא ןוויכל הנופו הנומתב רחא טקייבוא םוקמב תדמוע תאש ןיימדל ישקבתת בלש לכב\n\n" + \
                    ",(ןושארה ץפחה םוקמב) בלש ותואב ךלש ןיימודמה םוקימה תא תפקשמ לגעמה זכרמבש הדוקנה .בשחמה לש רבכעה תרזעב הנומתה דצלש ןומיסה לגעמ יבג לע רייצל ךיילע וקה תא\n" + \
@@ -101,7 +122,15 @@ INSTRUCTION_TEXT = ".ןומיס לגעמ הדיצלו טפשמ עיפוי הנו
                    "?וקווקמה וקה עיבצמ וילא ןוויכב היה ףותה , ץעה ןוויכל הנופו ןומעפה םוקמב תדמוע תייה םאש ןיימדל הלוכי תא םאה .וקווקמ וקכ אמגודב עיפומ רייצל ךירצ היהש וקה\n\n" + \
                    ".המישמה יבגל תולאש ךל שי םא ןחובה תא ילאש\n"
 
-
+INSTRUCTION_TEXT_M = ".ןומיס לגעמ ודיצלו טפשמ עיפוי הנומתל תחתמ .םיטקייבוא רפסמ םימקוממ הבו הנומת הארת קדבמב .בחרמב תונוש טבמ תודוקנו םינוויכ ןיימדל ךלש תלוכיה תא ןחוב הז קדבמ\n" + \
+                   ".תראותמה הביטקפסרפהמ ישילש טקייבוא אצמנ וב ןוויכה תא ףקשמש וק רייצל היהת ךלש המישמה .רחא טקייבוא ןוויכל הנופו ,הנומתבש םיטקייבואה דחא םוקמב דמוע התאש ןיימדל שקבתת התא\n" + \
+                   ".ךיילא סחיב והשלכ ישילש טקייבוא לש םוקימה תא ףקשמש וק רייצל ןכמ רחאלו ,שדח טקייבוא ןוויכל הנופו הנומתב רחא טקייבוא םוקמב דמוע התאש ןיימדל שקבתת בלש לכב\n\n" + \
+                   ",(ןושארה ץפחה םוקמב) בלש ותואב ךלש ןיימודמה םוקימה תא תפקשמ לגעמה זכרמבש הדוקנה .בשחמה לש רבכעה תרזעב הנומתה דצלש ןומיסה לגעמ יבג לע רייצל ךיילע וקה תא\n" + \
+                   ".וללה תודוקנה יתשל סחיב ישילשה ץפחה לש ןוויכה תא גציימש וק רייצל ךירצ התא .(הנופ התא וילא ינשה ץפחה לש ןוויכה) ךלש תניימודמה טבמה תדוקנ תא ףקשמ יכנאה ץחהו\n\n" + \
+                   ".ףותה לש ןוויכה לא עיבצמש וק רייצל התייה אמגודב המישמה .ץעה ןוויכל הנופו ןומעפה םוקמב דמוע התאש ןיימדל שקבתמ התא וז אמגודב .דומעה תיתחתבש אמגודל בלשב טבה\n" + \
+                   "?וקווקמה וקה עיבצמ וילא ןוויכב היה ףותה ,ץעה ןוויכל הנופו ןומעפה םוקמב דמוע תייה םאש ןיימדל לוכי התא םאה .וקווקמ וקכ אמגודב עיפומ רייצל ךירצ היהש וקה\n\n" + \
+                   ".המישמה יבגל תולאש ךל שי םא ןחובה תא לאש\n"
+INSTRUCTION_TEXT = INSTRUCTION_TEXT_M
 
 ##################
 # Global variables for the plot creator functions and instructions
@@ -144,8 +173,10 @@ elapsed_time = 0
 
 
 def main():
-    global dpi ,fontsize_instruction, fontsize_test, screen_height_in, screen_width_in, result_file, errors, task_id,result_csv, csv_file_name,TASK_EXAMPLE_0
+    global dpi ,fontsize_instruction, fontsize_test, screen_height_in, screen_width_in, result_file, errors, task_id,result_csv, csv_file_name,TASK_EXAMPLE_0, TASK_EXAMPLE_1, TASK_EXAMPLE_2, TASK_EXAMPLE_3, TASK_EXAMPLE_4
     TASK_EXAMPLE_0 = linebreak_text(RTL_text(TASK_EXAMPLE_0))
+    TASK_EXAMPLE_3 = linebreak_text(RTL_text(TASK_EXAMPLE_3))
+
     matplotlib.rcParams['toolbar'] = 'None'
     subject_id = input("Please insert your participant ID: ")
     input_values = input("Enter dpi and font size for the instructions window and the test window separated by a space, press 'Enter' for default values(Example input- 100 13 15): ")
@@ -499,6 +530,8 @@ def RTL_text(text):
     sentences.reverse()
     text = '.'.join(sentences)
     return text
+
+
 def linebreak_text(text):
     '''
     This function receives a text string and returns the same text string with a break line at every period
