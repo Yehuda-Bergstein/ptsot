@@ -263,7 +263,7 @@ def create_third_instruction_window():
     txt_ax.set_xticks([])
     txt_ax.set_yticks([])
 
-    txt_ax.text(0.99, 0.9, TASK_EXAMPLE_3, verticalalignment='top', horizontalalignment='right', fontsize=fontsize_instruction+5, weight='bold')
+    txt_ax.text(0.99, 0.9, TASK_EXAMPLE_3, verticalalignment='top', horizontalalignment='center', fontsize=fontsize_instruction+5, weight='bold')
     ins_fig.tight_layout()
     ins_fig.canvas.mpl_connect('close_event', on_close)
     plt.show()
