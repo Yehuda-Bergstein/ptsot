@@ -192,7 +192,10 @@ def main():
 
         for var, val in zip(variables, LIST_OF_TEXTS_M_HEB):
             globals()[var] = val
-            print   ("Male participant")
+
+        print("Male participant")
+
+        
     elif gender == "F":
         for var, val in zip(variables, LIST_OF_TEXTS_F_HEB):
             globals()[var] = val
@@ -206,7 +209,7 @@ def main():
     ##############
     INSTRUCTION_TEXT_TITLE = INSTRUCTION_TEXT_TITLE_HEB # set the title of the instruction window in hebrew
 
-    
+
 
     input_values = input("Enter dpi and font size for the instructions window and the test window separated by a space, press 'Enter' for default values(Example input- 100 13 15): ")
     if input_values.strip() == "":
