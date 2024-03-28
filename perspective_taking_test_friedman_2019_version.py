@@ -23,8 +23,7 @@ class CustomDialog(simpledialog.Dialog):
     def body(self, master):
         self.state('normal')  # Maximize the dialog box
         self.title("End of Test")
-        self.label = tk.Label(master, text=".המשימה הסתיימה, אנא קראי לבודק", font=("TkDefaultFont", 46))
-        self.label_M = tk.Label(master, text=".המשימה הסתיימה, אנא קרא לבודק", font=("TkDefaultFont", 46))
+        self.label = tk.Label(master, text=".המשימה הסתיימה, נא לקרוא לבודק", font=("TkDefaultFont", 46))
         self.label.pack()
 
 
