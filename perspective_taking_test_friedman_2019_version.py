@@ -443,19 +443,19 @@ def on_key_press(EVENT):
             if task_id == 1:
                 example_line_1.set_visible(True)
                 fig.canvas.draw()
-                plt.pause(5)
+                plt.pause(1)
                 example_line_1.set_visible(False)
 
             elif task_id == 2:
                 example_line_2.set_visible(True)
                 fig.canvas.draw()
-                plt.pause(5)
+                plt.pause(1)
                 example_line_2.set_visible(False)
             
             elif task_id == 3:
                 example_line_3.set_visible(True)
                 fig.canvas.draw()
-                plt.pause(5)
+                plt.pause(1)
                 example_line_3.set_visible(False)
         task_id += 1
 
