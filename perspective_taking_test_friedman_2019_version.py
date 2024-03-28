@@ -464,6 +464,7 @@ def on_key_press(EVENT):
             load_task(task_id)
 
         else: # no more tasks, terminate the test
+            show_popup_message()
             avg_error = np.mean(errors)
             test_avg_error = np.mean(errors[4:]) # mean error of only the test items
             result_file.write('Average Error: ' + str(round(avg_error, 4)) + ','  +
