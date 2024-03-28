@@ -70,6 +70,7 @@ text_top = None
 text_example = None
 text_instruction = None
 example_task_instruction = None
+task_id = None
 
 ##################
 # Global variables for text boxes
@@ -83,7 +84,7 @@ TASK_EXAMPLE_4 = None # this is the text to be shown below each of the test tria
 INSTRUCTION_TEXT = None # this is the text to be shown at the beginning of the test (first window)
 INSTRUCTION_TEXT_TITLE = None # title of the instruction window
 
-# the next three are shown along with the senctences in the TASK_ITEMS list
+# the next three are shown along with the sentences in the TASK_ITEMS list
 TASK_TEXT_1 = None
 TASK_TEXT_2 = None
 TASK_TEXT_3 = None
@@ -102,13 +103,21 @@ fontsize_instruction = 15  # Set font size for the instructions window
 fontsize_test = 13  # Set font size for the test window
 
 ##########
-# Global varibles for time
+# Global variables for time
 ##########
 start_time = 0 # start time of the test
 timer = None # timer for the test
 elapsed_time = 0 # elapsed time of the test
 now = datetime.now() # Get the current date and time
 date_time = now.strftime("%Y-%m-%d_%H-%M-%S") # Format the date and time as a string
+
+##########
+# Global variables for the calculation of the angle,errors and saving the results as a text file and csv file
+##########
+result_file = None # file to write the results
+result_csv = None # csv file to write the results
+csv_file_name = None # name of the csv file
+errors = [] # list of errors
 
 ##########
 # All text box versions
@@ -221,9 +230,12 @@ def main():
 
     create_test_window(subject_id)
 
+
+    # save to global variables
     result_file = result_file
     result_csv = result_csv
-    errors = []
+    csv_file_name = csv_file_name
+
     task_id = 0
     load_task(task_id)
     
@@ -413,7 +425,7 @@ def on_click(EVENT):
 def on_key_press(EVENT):
     global task_id,result_file,errors,example_line_1,example_line_2,example_line_3,fig, result_csv, csv_file_name
     if EVENT.key == ' ':
-        if task_id >= 0: # record angles for all tasks to a txt and csv file
+        if task_id > 0: # exclude the first task item (example)
             correct_angle = round(TASK_ITEMS[task_id][3], 4)
             logged_angle = round(compute_response_line_angle(), 4)
             error = round(angle_difference(correct_angle, logged_angle), 4)
@@ -474,7 +486,7 @@ def on_close(EVENT):
 def update_time():
     global start_time, elapsed_time,result_file,errors, result_csv, csv_file_name
     elapsed_time = time.time() - start_time
-    if elapsed_time > 10.0:
+    if elapsed_time > 300.0:
         show_popup_message()
         avg_error = np.mean(errors)
         test_avg_error = np.mean(errors[4:]) # mean error of only the test items
@@ -488,6 +500,7 @@ def update_time():
 
 
 def show_popup_message():
+    # show a popup message if the task is not completed within 5 minutes
     d = CustomDialog(root)
 ##################
 # math helpers
