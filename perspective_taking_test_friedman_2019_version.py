@@ -182,13 +182,14 @@ LIST_OF_TEXTS_F_HEB = [TASK_EXAMPLE_0_F, TASK_EXAMPLE_1_F, TASK_EXAMPLE_2_F, TAS
 # main function
 ##################
 def main():
-    global dpi ,fontsize_instruction, fontsize_test, screen_height_in, screen_width_in, result_file, errors, task_id,result_csv, csv_file_name,TASK_EXAMPLE_0, TASK_EXAMPLE_1, TASK_EXAMPLE_2, TASK_EXAMPLE_3, TASK_EXAMPLE_4
+    global dpi ,fontsize_instruction, fontsize_test, screen_height_in, screen_width_in, result_file, errors, task_id,result_csv, csv_file_name,TASK_EXAMPLE_0, TASK_EXAMPLE_1, TASK_EXAMPLE_2, TASK_EXAMPLE_3, TASK_EXAMPLE_4,INSTRUCTION_TEXT_TITLE, INSTRUCTION_TEXT, TASK_TEXT_1, TASK_TEXT_2, TASK_TEXT_3
     variables = ["TASK_EXAMPLE_0", "TASK_EXAMPLE_1", "TASK_EXAMPLE_2", "TASK_EXAMPLE_3", "TASK_EXAMPLE_4", "TASK_TEXT_1", "TASK_TEXT_2", "TASK_TEXT_3", "INSTRUCTION_TEXT"]
     matplotlib.rcParams['toolbar'] = 'None'
     subject_id = input("Please insert your participant ID: ") # get the subject ID
     
     gender = input("Please enter the gender of the participant (M/F): ") # set all the text boxes to the correct gender
     if gender == "M":
+
         for var, val in zip(variables, LIST_OF_TEXTS_M_HEB):
             globals()[var] = val
             print   ("Male participant")
@@ -203,6 +204,9 @@ def main():
     TASK_EXAMPLE_0 = linebreak_text(RTL_text(TASK_EXAMPLE_0)) # added linebreaks and RTL to the text
     TASK_EXAMPLE_3 = linebreak_text(RTL_text(TASK_EXAMPLE_3)) # added linebreaks and RTL to the text
     ##############
+    INSTRUCTION_TEXT_TITLE = INSTRUCTION_TEXT_TITLE_HEB # set the title of the instruction window in hebrew
+
+    
 
     input_values = input("Enter dpi and font size for the instructions window and the test window separated by a space, press 'Enter' for default values(Example input- 100 13 15): ")
     if input_values.strip() == "":
