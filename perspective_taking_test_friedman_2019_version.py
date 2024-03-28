@@ -21,11 +21,6 @@ import sys
 
 from bidi import algorithm as bidialg
 
-# Get the current date and time
-now = datetime.now()
-# Format the date and time as a string
-date_time = now.strftime("%Y-%m-%d_%H-%M-%S")
-
 # custom tkinter dialog box in order to display the 'task end' message in a larger font
 class CustomDialog(simpledialog.Dialog):
     def body(self, master):
@@ -112,11 +107,11 @@ fontsize_test = 13  # Set font size for the test window
 ##########
 # Global varibles for time
 ##########
-start_time = 0
-timer = None
-elapsed_time = 0
-
-
+start_time = 0 # start time of the test
+timer = None # timer for the test
+elapsed_time = 0 # elapsed time of the test
+now = datetime.now() # Get the current date and time
+date_time = now.strftime("%Y-%m-%d_%H-%M-%S") # Format the date and time as a string
 
 ##########
 # All text box versions
@@ -195,7 +190,7 @@ def main():
 
         print("Male participant")
 
-        
+
     elif gender == "F":
         for var, val in zip(variables, LIST_OF_TEXTS_F_HEB):
             globals()[var] = val
@@ -208,6 +203,7 @@ def main():
     TASK_EXAMPLE_3 = linebreak_text(RTL_text(TASK_EXAMPLE_3)) # added linebreaks and RTL to the text
     ##############
     INSTRUCTION_TEXT_TITLE = INSTRUCTION_TEXT_TITLE_HEB # set the title of the instruction window in hebrew
+    ##############
 
 
 
@@ -270,7 +266,6 @@ def create_second_instruction_window():
 
     # create figure
     ins_fig = plt.figure("Instructions", figsize = (screen_width_in, screen_height_in),dpi=dpi)
-    print("success")
 
     # create subplots
     txt_ax = ins_fig.add_subplot(1, 1, 1)
@@ -306,7 +301,6 @@ def create_test_window(SUBJECT_ID):
     plt.rcParams['text.usetex'] = False
     # Define the grid
     gs = gridspec.GridSpec(2, 2, width_ratios=[1.5, 1], height_ratios=[1, 1])
-
 
     # object array subplot
     pic_ax = test_fig.add_subplot(gs[:, 0])
@@ -385,15 +379,15 @@ def load_task(INDEX):
     text_instruction.set_text(instruction_text)
     
     
-    if INDEX == 0: # example case
-        create_first_instruction_window() # show general instructions at the beginning
+    if INDEX == 0:
+        create_first_instruction_window() 
         answer_line.set_data([0.0, -0.809], [0.0, 0.587])
         text_example.set_text('ףות')
     else:
         answer_line.set_data([0.0, 0.0], [0.0, 1.0])
         text_example.set_text('')
 
-    if INDEX == 0: # first example task
+    if INDEX == 0:
         example_task_instruction.set_text(TASK_EXAMPLE_0)
     if INDEX == 1:
         print("INDEX 1")
@@ -402,8 +396,8 @@ def load_task(INDEX):
         example_task_instruction.set_text(TASK_EXAMPLE_2)
     if INDEX == 4:
         create_third_instruction_window() # Show the final instructions before the test starts
-    text_bottom.set_text(item_tuple[0][:-1]) # removed the hey hayedia from the word
-    text_top.set_text(item_tuple[1][:-1]) # removed the hey hayedia from the word
+    text_bottom.set_text(item_tuple[0][:-1]) # set the text at the bottom of the test window (First task item from TASK_ITEMS)
+    text_top.set_text(item_tuple[1][:-1]) # set the text at the top of the test window (Second task item from TASK_ITEMS)
     fig.canvas.draw()
 
 
@@ -422,7 +416,7 @@ def on_click(EVENT):
 def on_key_press(EVENT):
     global task_id,result_file,errors,example_line_1,example_line_2,example_line_3,fig, result_csv, csv_file_name
     if EVENT.key == ' ':
-        if task_id > 0: # exclude example
+        if task_id >= 0: # record angles for all tasks to a txt and csv file
             correct_angle = round(TASK_ITEMS[task_id][3], 4)
             logged_angle = round(compute_response_line_angle(), 4)
             error = round(angle_difference(correct_angle, logged_angle), 4)
@@ -466,10 +460,6 @@ def on_key_press(EVENT):
             result_file.write('Average Error: ' + str(round(avg_error, 4)) + ','  +
                               'Test Only Average Error: ' + str(round(test_avg_error, 4)))
             result_file.close()
-            # with open(csv_file_name, 'a', newline='') as result_csv:
-            #     result_csv.write('Average Error: ' + ',' + str(round(avg_error, 4) + '\n'))
-            #     result_csv.write('Test Only Average Error: ' + ',' + str(round(test_avg_error, 4)) + '\n')
-
             print('The test has terminated successfully. Results saved to file ' + result_file.name + '.')
             sys.exit(0)
 
@@ -494,10 +484,6 @@ def update_time():
         result_file.write('Average Error: ' + str(round(avg_error, 4)) + ',' +
                           'Test Only Average Error: ' + str(round(test_avg_error, 4)))      
         result_file.close()
-        # with open(csv_file_name, 'a', newline='') as result_csv:
-        #     result_csv.write('Average Error: ' + ',' + str(round(avg_error, 4)) + '\n')
-        #     result_csv.write('Test Only Average Error: ' + ',' + str(round(test_avg_error, 4) + '\n')
-
         print('The test has terminated successfully. Results saved to file ' + result_file.name + '.')
         sys.exit(0)
     print(f'Time elapsed: {elapsed_time} seconds')
