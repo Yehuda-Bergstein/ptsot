@@ -14,11 +14,8 @@ import tkinter as tk
 from tkinter import simpledialog
 import time
 from datetime import datetime
-
-# import python libraries
 import math
 import sys
-
 from bidi import algorithm as bidialg
 
 # custom tkinter dialog box in order to display the 'task end' message in a larger font
